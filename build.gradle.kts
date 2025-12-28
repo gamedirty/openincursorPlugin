@@ -31,7 +31,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("232")
-        untilBuild.set("243.*")  // IntelliJ IDEA 2024.3
+        untilBuild.set("261.*")  // Support up to 2026.1
     }
 
     signPlugin {
