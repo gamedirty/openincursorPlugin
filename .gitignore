@@ -16,6 +16,8 @@ out/
 
 # macOS
 .DS_Store
+.AppleDouble
+.LSOverride
 
 # Gradle Wrapper
 !gradle/wrapper/gradle-wrapper.jar
@@ -32,4 +34,15 @@ out/
 *.zip
 *.tar.gz
 *.rar
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
