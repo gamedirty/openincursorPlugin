@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Planned
+- Add keyboard shortcut support
+- Add configuration page for custom Cursor path
+- Support opening specific file/folder in Cursor
+
 ## [1.0.0] - 2025-12-28
 
 ### Added
@@ -16,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Automatic fallback mechanisms for different launch methods
 - Zero-configuration setup when Cursor is in PATH
 - Friendly error messages with troubleshooting guidance
+- GitHub Actions CI/CD for automated building and publishing
 
 ### Features
 - 🖱️ Distinctive Cursor icon in context menu

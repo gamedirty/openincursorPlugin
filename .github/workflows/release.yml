@@ -1,0 +1,114 @@
+name: Release Plugin
+
+on:
+  push:
+    tags:
+      - 'v*'  # 匹配 v1.0.0, v2.1.0 等版本标签
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Get version from tag
+      id: get_version
+      run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+      
+    - name: Build Plugin
+      run: ./gradlew buildPlugin
+      
+    - name: Verify Plugin
+      run: ./gradlew verifyPlugin
+      
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref_name }}
+        body: |
+          # Open in Cursor Plugin ${{ github.ref_name }}
+          
+          🎉 **Built with Vibe Coding** - AI-assisted development
+          
+          ## ✨ Features
+          - 🖱️ Custom Cursor brand icon in context menu
+          - 🚀 One-click project opening in Cursor editor
+          - 🌍 Cross-platform support (macOS, Windows, Linux)
+          - 🎨 Light/Dark theme support
+          
+          ## 📦 Installation
+          
+          ### Method 1: From Release (Recommended)
+          1. Download `openincursor-plugin-${{ steps.get_version.outputs.VERSION }}.zip` below
+          2. Open IntelliJ IDEA or Android Studio
+          3. Go to `Settings/Preferences` → `Plugins` → `⚙️` → `Install Plugin from Disk...`
+          4. Select the downloaded zip file
+          5. Restart IDE
+          
+          ### Method 2: From JetBrains Marketplace (Coming Soon)
+          Search for "Open in Cursor" in the plugin marketplace
+          
+          ## 🔧 Setup
+          
+          Configure Cursor command-line tool:
+          
+          **macOS:**
+          - Open Cursor → `⌘+Shift+P` → "Shell Command: Install 'cursor' command in PATH"
+          
+          **Windows:**
+          - Check "Add to PATH" during Cursor installation
+          
+          **Linux:**
+          ```bash
+          sudo ln -s /path/to/cursor /usr/local/bin/cursor
+          ```
+          
+          ## 📋 Changelog
+          
+          See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for details.
+          
+          ---
+          
+          **Built with ❤️ using Vibe Coding**
+        draft: false
+        prerelease: false
+        
+    - name: Upload Plugin to GitHub Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./build/distributions/openincursor-plugin-${{ steps.get_version.outputs.VERSION }}.zip
+        asset_name: openincursor-plugin-${{ steps.get_version.outputs.VERSION }}.zip
+        asset_content_type: application/zip
+        
+    - name: Publish to JetBrains Marketplace
+      if: ${{ secrets.JETBRAINS_PUBLISH_TOKEN != '' }}
+      run: ./gradlew publishPlugin
+      env:
+        PUBLISH_TOKEN: ${{ secrets.JETBRAINS_PUBLISH_TOKEN }}
+        
+    - name: Notify if Marketplace Token Missing
+      if: ${{ secrets.JETBRAINS_PUBLISH_TOKEN == '' }}
+      run: |
+        echo "⚠️  JETBRAINS_PUBLISH_TOKEN not configured"
+        echo "Plugin built and released to GitHub, but not published to JetBrains Marketplace"
+        echo "To enable marketplace publishing, add JETBRAINS_PUBLISH_TOKEN to repository secrets"
+        echo "Get your token from: https://plugins.jetbrains.com/author/me/tokens"
+
