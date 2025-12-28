@@ -12,10 +12,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add configuration page for custom Cursor path
 - Support opening specific file/folder in Cursor
 
+## [2.0.0] - 2025-12-28
+
+### Changed
+- **Plugin renamed to "Launch in Cursor"** to differentiate from similar plugins
+- Updated plugin ID to `dev.launchincursor.plugin`
+- Enhanced description highlighting direct launch capability
+- Updated all documentation to reflect new branding
+
+### Key Advantage
+- Can launch projects in Cursor **even if they've never been opened in Cursor before**
+- Direct launch with project path, unlike other plugins that may fail with new projects
+
 ## [1.0.0] - 2025-12-28
 
 ### Added
-- Initial release of Open in Cursor plugin
+- Initial release of Launch in Cursor plugin (originally "Open in Cursor")
 - Right-click context menu integration in "Open In" submenu
 - Custom Cursor brand icon (light and dark theme support)
 - Cross-platform support (macOS, Windows, Linux)
@@ -34,12 +46,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Technical
 - Built with Kotlin 1.9.22
-- Compatible with IntelliJ IDEA 2023.2+ (Build 232+)
-- Compatible with Android Studio 2023.2+ (Build 232+)
-- No upper version limit (supports all future IDE versions)
+- Compatible with IntelliJ IDEA 2023.2 - 2026.1 (Build 232 - 261.*)
+- Compatible with Android Studio 2023.2 - 2026.1
 - SVG vector icons for crisp display at any resolution
 
 ---
 
 **Built with Vibe Coding** - AI-assisted development for rapid, high-quality software creation.
-

@@ -1,26 +1,34 @@
 <idea-plugin>
-    <id>dev.openincursor.plugin</id>
-    <name>Open in Cursor</name>
-    <vendor email="support@openincursor.dev" url="https://github.com/openincursor">OpenInCursor</vendor>
+    <id>dev.launchincursor.plugin</id>
+    <name>Launch in Cursor</name>
+    <vendor email="support@launchincursor.dev" url="https://github.com/gamedirty/openincursorPlugin">Launch in Cursor</vendor>
 
     <description><![CDATA[
-    This plugin adds a convenient menu option to open your IntelliJ IDEA or Android Studio project directly in the Cursor editor.
-    Simply right-click on your project and select "Open In" -> "Cursor" to launch the project in Cursor.
+    Launch your IntelliJ IDEA or Android Studio project directly in Cursor editor with one click - even if you've never opened the project in Cursor before!
+    <br/>
+    <br/>
+    <strong>Why choose this plugin?</strong><br/>
+    Unlike other similar plugins, this one can open projects in Cursor even when Cursor hasn't previously opened that project. It directly launches Cursor with your project path, making it truly hassle-free.
     <br/>
     <br/>
     <em>Features:</em>
     <ul>
-        <li>Right-click on any project in the project view</li>
-        <li>Select "Open In" -> "Cursor" from the context menu</li>
-        <li>The project will be opened in Cursor editor automatically</li>
-        <li>Cross-platform support: macOS, Windows, and Linux</li>
-        <li>Automatic detection of Cursor installation</li>
+        <li>🚀 Direct launch - works even for new projects never opened in Cursor</li>
+        <li>🖱️ One-click access from "Open In" context menu</li>
+        <li>🎨 Custom Cursor icon in menu</li>
+        <li>🌍 Cross-platform: macOS, Windows, and Linux</li>
+        <li>⚡ Zero configuration required</li>
+        <li>🔍 Smart detection of Cursor installation</li>
     </ul>
+    <br/>
+    <em>Usage:</em><br/>
+    Right-click on any project → "Open In" → "Cursor" → Done! Your project opens in Cursor instantly.
+    <br/>
     <br/>
     <em>Requirements:</em>
     <ul>
-        <li>Cursor editor must be installed on your system</li>
-        <li>Cursor command-line tool should be available in PATH</li>
+        <li>Cursor editor installed on your system</li>
+        <li>Cursor command-line tool in PATH (or Cursor.app on macOS)</li>
     </ul>
     ]]></description>
 
@@ -28,10 +36,10 @@
     <depends>com.intellij.modules.platform</depends>
 
     <actions>
-        <action id="dev.openincursor.plugin.OpenInCursorAction"
+        <action id="dev.launchincursor.plugin.LaunchInCursorAction"
                 class="com.example.openincursor.OpenInCursorAction"
                 text="Cursor"
-                description="Open project in Cursor editor"
+                description="Launch project in Cursor editor"
                 icon="com.example.openincursor.CursorIcons.CURSOR">
             <add-to-group group-id="RevealGroup" anchor="last"/>
         </action>

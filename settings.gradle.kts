@@ -1,2 +1,2 @@
-rootProject.name = "openincursor-plugin"
+rootProject.name = "launchincursor-plugin"
 

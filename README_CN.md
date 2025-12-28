@@ -1,28 +1,43 @@
-# Open in Cursor 插件
+# Launch in Cursor 插件
 
 [English](README.md) | [中文](README_CN.md)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Vibe Coding](https://img.shields.io/badge/Built%20with-Vibe%20Coding-blue)](https://github.com/vibe-coding)
 
-一个便捷的 IntelliJ IDEA / Android Studio 插件，在右键菜单的 "Open In" 子菜单中添加 "Cursor" 选项，让您可以快速在 Cursor 编辑器中打开项目。
+一键直接在 Cursor 编辑器中打开你的 IntelliJ IDEA / Android Studio 项目 - **即使 Cursor 从未打开过这个项目！**
 
 > 🎉 **使用 Vibe Coding 构建** - 这个项目通过 AI 辅助开发流程创建，展示了现代 AI 驱动编码工作流的强大能力。
 
+## 🚀 为什么选择这个插件？
+
+**核心优势：** 与其他同类插件不同，本插件可以直接启动 Cursor 打开项目，即使 Cursor 之前从未打开过该项目。它直接使用项目路径启动 Cursor，真正做到零障碍！
+
+其他插件在尝试打开 Cursor 从未见过的项目时可能会失败。这个插件完美解决了这个问题。
+
 ## ✨ 功能特性
 
+- 🚀 **直接启动** - 即使是全新项目，Cursor 从未打开过也能正常工作
 - 🖱️ **专属 Cursor 图标** - 菜单中显示独特的 Cursor 品牌图标
-- 🚀 **一键打开** - 右键项目 → Open In → Cursor
+- ⚡ **一键访问** - 右键项目 → Open In → Cursor
 - 🌍 **跨平台支持** - 支持 macOS、Windows 和 Linux
 - 🔍 **智能检测** - 自动检测 Cursor 安装路径
 - 🎨 **主题适配** - 亮色/暗色主题自动切换图标
-- ⚡ **零配置** - 如果 Cursor 在 PATH 中，开箱即用
+- ⚙️ **零配置** - 如果 Cursor 在 PATH 中，开箱即用
 
 ## 📦 安装方法
 
+### 从 JetBrains 插件市场安装（推荐）
+
+1. 打开 IntelliJ IDEA 或 Android Studio
+2. 进入 `Settings/Preferences` → `Plugins` → `Marketplace`
+3. 搜索 "Launch in Cursor"
+4. 点击 `Install`
+5. 重启 IDE
+
 ### 从 Release 安装
 
-1. 从 [Releases](https://github.com/YOUR_USERNAME/openincursorPlugin/releases) 下载最新的 `openincursor-plugin-1.0.0.zip`
+1. 从 [Releases](https://github.com/gamedirty/openincursorPlugin/releases) 下载最新的 `launchincursor-plugin-x.x.x.zip`
 2. 打开 IntelliJ IDEA 或 Android Studio
 3. 进入 `Settings/Preferences` → `Plugins` → `⚙️` → `Install Plugin from Disk...`
 4. 选择下载的 zip 文件
@@ -32,13 +47,13 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR_USERNAME/openincursorPlugin.git
+git clone https://github.com/gamedirty/openincursorPlugin.git
 cd openincursorPlugin
 
 # 构建插件
 ./gradlew buildPlugin
 
-# 插件文件位于 build/distributions/openincursor-plugin-1.0.0.zip
+# 插件文件位于 build/distributions/launchincursor-plugin-x.x.x.zip
 ```
 
 ## 🔧 配置 Cursor 命令行工具
@@ -81,7 +96,35 @@ cursor --version
 
 1. 在项目视图中，右键点击项目根目录
 2. 选择 `Open In` → `Cursor`
-3. 项目将在 Cursor 编辑器中打开！🎉
+3. 项目立即在 Cursor 编辑器中打开！🎉
+
+**无论 Cursor 之前是否打开过这个项目 - 都能正常工作！**
+
+## 🎯 兼容性
+
+- **最低版本：** IntelliJ IDEA 2023.2+ / Android Studio 2023.2+ (Build 232+)
+- **最高版本：** IntelliJ IDEA 2026.1+ / Android Studio 2026.1+ (Build 261.*)
+- **平台：** macOS、Windows、Linux
+- **主题：** 支持亮色和暗色主题
+
+## 📁 项目结构
+
+```
+openincursorPlugin/
+├── src/main/
+│   ├── kotlin/com/example/openincursor/
+│   │   ├── OpenInCursorAction.kt      # 核心功能实现
+│   │   └── CursorIcons.kt             # 图标加载器
+│   └── resources/
+│       ├── icons/
+│       │   ├── cursor.svg              # 亮色主题图标
+│       │   └── cursor_dark.svg         # 暗色主题图标
+│       └── META-INF/
+│           └── plugin.xml              # 插件配置
+├── build.gradle.kts                    # Gradle 构建脚本
+├── README.md                           # 英文文档
+└── README_CN.md                        # 本文件（中文文档）
+```
 
 ## 🛠 开发说明
 
@@ -105,32 +148,6 @@ cursor --version
 
 # 清理构建文件
 ./gradlew clean
-```
-
-## 🎯 兼容性
-
-- **最低版本：** IntelliJ IDEA 2023.2+ / Android Studio 2023.2+ (Build 232+)
-- **最高版本：** 所有后续版本（无上限）
-- **平台：** macOS、Windows、Linux
-- **主题：** 支持亮色和暗色主题
-
-## 📁 项目结构
-
-```
-openincursorPlugin/
-├── src/main/
-│   ├── kotlin/com/example/openincursor/
-│   │   ├── OpenInCursorAction.kt      # 核心功能实现
-│   │   └── CursorIcons.kt             # 图标加载器
-│   └── resources/
-│       ├── icons/
-│       │   ├── cursor.svg              # 亮色主题图标
-│       │   └── cursor_dark.svg         # 暗色主题图标
-│       └── META-INF/
-│           └── plugin.xml              # 插件配置
-├── build.gradle.kts                    # Gradle 构建脚本
-├── README.md                           # 英文文档
-└── README_CN.md                        # 本文件（中文文档）
 ```
 
 ## 🤝 贡献
@@ -157,8 +174,8 @@ openincursorPlugin/
 
 如果遇到问题或有建议：
 
-- 🐛 [报告 Bug](https://github.com/YOUR_USERNAME/openincursorPlugin/issues)
-- 💡 [功能建议](https://github.com/YOUR_USERNAME/openincursorPlugin/issues)
+- 🐛 [报告 Bug](https://github.com/gamedirty/openincursorPlugin/issues)
+- 💡 [功能建议](https://github.com/gamedirty/openincursorPlugin/issues)
 - ⭐ 如果觉得有用，请给项目点个 Star！
 
 ## 🔗 相关链接

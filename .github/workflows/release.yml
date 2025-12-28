@@ -38,29 +38,35 @@ jobs:
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
       with:
-        files: ./build/distributions/openincursor-plugin-${{ steps.get_version.outputs.VERSION }}.zip
+        files: ./build/distributions/launchincursor-plugin-${{ steps.get_version.outputs.VERSION }}.zip
         body: |
-          # Open in Cursor Plugin ${{ github.ref_name }}
+          # Launch in Cursor Plugin ${{ github.ref_name }}
           
           🎉 **Built with Vibe Coding** - AI-assisted development
           
+          ## 🚀 Why This Plugin?
+          
+          **Direct Launch Capability:** Unlike other similar plugins, this one can open projects in Cursor **even when Cursor hasn't previously opened that project**. It directly launches Cursor with your project path, making it truly hassle-free!
+          
           ## ✨ Features
+          - 🚀 Direct launch - works even for new projects never opened in Cursor
           - 🖱️ Custom Cursor brand icon in context menu
-          - 🚀 One-click project opening in Cursor editor
+          - ⚡ One-click project opening in Cursor editor
           - 🌍 Cross-platform support (macOS, Windows, Linux)
           - 🎨 Light/Dark theme support
+          - ⚙️ Zero configuration required
           
           ## 📦 Installation
           
           ### Method 1: From Release (Recommended)
-          1. Download `openincursor-plugin-${{ steps.get_version.outputs.VERSION }}.zip` below
+          1. Download `launchincursor-plugin-${{ steps.get_version.outputs.VERSION }}.zip` below
           2. Open IntelliJ IDEA or Android Studio
           3. Go to `Settings/Preferences` → `Plugins` → `⚙️` → `Install Plugin from Disk...`
           4. Select the downloaded zip file
           5. Restart IDE
           
-          ### Method 2: From JetBrains Marketplace (Coming Soon)
-          Search for "Open in Cursor" in the plugin marketplace
+          ### Method 2: From JetBrains Marketplace
+          Search for "Launch in Cursor" in the plugin marketplace
           
           ## 🔧 Setup
           
