@@ -36,13 +36,9 @@ jobs:
       run: ./gradlew verifyPlugin
       
     - name: Create GitHub Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref_name }}
+        files: ./build/distributions/openincursor-plugin-${{ steps.get_version.outputs.VERSION }}.zip
         body: |
           # Open in Cursor Plugin ${{ github.ref_name }}
           
@@ -90,16 +86,6 @@ jobs:
           **Built with ❤️ using Vibe Coding**
         draft: false
         prerelease: false
-        
-    - name: Upload Plugin to GitHub Release
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build/distributions/openincursor-plugin-${{ steps.get_version.outputs.VERSION }}.zip
-        asset_name: openincursor-plugin-${{ steps.get_version.outputs.VERSION }}.zip
-        asset_content_type: application/zip
         
     - name: Publish to JetBrains Marketplace
       continue-on-error: true
