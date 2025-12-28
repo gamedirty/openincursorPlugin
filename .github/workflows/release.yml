@@ -99,16 +99,8 @@ jobs:
         asset_content_type: application/zip
         
     - name: Publish to JetBrains Marketplace
-      if: ${{ secrets.JETBRAINS_PUBLISH_TOKEN != '' }}
+      continue-on-error: true
       run: ./gradlew publishPlugin
       env:
         PUBLISH_TOKEN: ${{ secrets.JETBRAINS_PUBLISH_TOKEN }}
-        
-    - name: Notify if Marketplace Token Missing
-      if: ${{ secrets.JETBRAINS_PUBLISH_TOKEN == '' }}
-      run: |
-        echo "⚠️  JETBRAINS_PUBLISH_TOKEN not configured"
-        echo "Plugin built and released to GitHub, but not published to JetBrains Marketplace"
-        echo "To enable marketplace publishing, add JETBRAINS_PUBLISH_TOKEN to repository secrets"
-        echo "Get your token from: https://plugins.jetbrains.com/author/me/tokens"
 
