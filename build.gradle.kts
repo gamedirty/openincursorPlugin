@@ -31,7 +31,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("232")
-        untilBuild.set("261.*")  // Support up to 2026.1
+        untilBuild.set("300.*")  // Support IDE versions up to 2030.0 (very future-proof)
     }
 
     signPlugin {
