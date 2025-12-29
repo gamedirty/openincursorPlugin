@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "dev.launchincursor"
-version = "2.0.2"
+version = "2.0.3"
 
 repositories {
     mavenCentral()
@@ -31,7 +31,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("232")
-        untilBuild.set("253.*")  // Support IDE versions up to 2025.3
+        // No until-build specified = compatible with all future versions
     }
 
     signPlugin {
