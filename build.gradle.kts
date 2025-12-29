@@ -4,8 +4,8 @@ plugins {
     id("org.jetbrains.intellij") version "1.17.2"
 }
 
-group = "dev.openincursor"
-version = "1.0.0"
+group = "dev.launchincursor"
+version = "2.0.0"
 
 repositories {
     mavenCentral()
