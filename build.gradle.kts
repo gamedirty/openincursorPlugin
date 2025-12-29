@@ -16,6 +16,7 @@ intellij {
     version.set("2023.2.5")
     type.set("IC") // Target IDE Platform (IC = IntelliJ IDEA Community, AI = Android Studio)
     plugins.set(listOf())
+    updateSinceUntilBuild.set(false) // Don't automatically set until-build
 }
 
 tasks {
