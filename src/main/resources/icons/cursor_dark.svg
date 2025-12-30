@@ -1,12 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <defs>
-    <linearGradient id="cursorGradientDark" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3399FF;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#00E5FF;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <path d="M2 2 L2 14 L6 10 L9 14 L11 13 L8 9 L13 9 Z" 
-        fill="url(#cursorGradientDark)" 
-        stroke="none"/>
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <!-- Slightly lighter background for dark theme -->
+  <rect width="16" height="16" rx="3.5" fill="#2D2D2D"/>
+  
+  <!-- 3D Cube structure -->
+  <g transform="translate(8, 8)">
+    <!-- Back left face (darkest) -->
+    <path d="M -3.5 -1.5 L 0 -3.5 L 0 1.5 L -3.5 3.5 Z" fill="#5D5D5D"/>
+    
+    <!-- Back right face (medium dark) -->
+    <path d="M 0 -3.5 L 3.5 -1.5 L 3.5 3.5 L 0 1.5 Z" fill="#6D6D6D"/>
+    
+    <!-- Top face (white/light) -->
+    <path d="M 0 -3.5 L 3.5 -1.5 L 0 0.5 L -3.5 -1.5 Z" fill="#F5F5F5"/>
+    
+    <!-- Front left face (medium gray) -->
+    <path d="M -3.5 -1.5 L 0 0.5 L 0 1.5 L -3.5 3.5 Z" fill="#7E7E7E"/>
+    
+    <!-- Front right face (light gray) -->
+    <path d="M 0 0.5 L 3.5 -1.5 L 3.5 3.5 L 0 1.5 Z" fill="#9A9A9A"/>
+  </g>
 </svg>
-

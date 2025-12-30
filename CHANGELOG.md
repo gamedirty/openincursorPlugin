@@ -12,6 +12,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add configuration page for custom Cursor path
 - Support opening specific file/folder in Cursor
 
+## [2.0.5] - 2025-12-30
+
+### Changed
+- **Updated icon to use official Cursor logo** extracted from Cursor.app
+- Replaced custom icon with accurate 3D cube design matching Cursor branding
+- Improved icon rendering for both light and dark themes
+
+## [2.0.4] - 2025-12-30
+
+### Fixed
+- **Resolved IDE compatibility issues** - Plugin now works with all IDE versions from 232+
+- Disabled automatic `until-build` generation to ensure unlimited forward compatibility
+- Fixed plugin not being searchable on JetBrains Marketplace
+
+## [2.0.3] - 2025-12-30
+
+### Fixed
+- Updated compatibility range to support unlimited future IDE versions
+
+## [2.0.2] - 2025-12-30
+
+### Fixed
+- Removed magic number from `until-build` attribute as per Marketplace requirements
+
+## [2.0.1] - 2025-12-30
+
+### Fixed
+- Corrected plugin compatibility settings to work with newer IDE versions
+
 ## [2.0.0] - 2025-12-28
 
 ### Changed
